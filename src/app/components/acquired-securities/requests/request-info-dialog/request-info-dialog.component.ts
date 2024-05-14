@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CreditRequestDto } from 'src/app/dtos/credit-request-dto';
 import { CreditService } from 'src/app/services/bank-service/credit.service';
 import { AuthService } from 'src/app/services/iam-service/auth.service';
-import { Subscription, throwError } from 'rxjs';
 
 import { Role } from 'src/app/dtos/decoded-token-dto';
 
@@ -18,9 +17,6 @@ export class RequestInfoDialog {
     authService = inject(AuthService);
 
     newSelectedRow: CreditRequestDto = { ...this.data.selectedRow };
-    private loginSubscription: Subscription | undefined;
-    private changeDetector = inject(ChangeDetectorRef);
-
 
     isLoading = true;
     role: Role | null = null;
